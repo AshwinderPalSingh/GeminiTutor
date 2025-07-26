@@ -1,0 +1,14 @@
+Flask>=2.0
+requests>=2.31.0
+gTTS>=2.3.2
+sounddevice>=0.4.6
+scipy>=1.11.4
+PyMuPDF>=1.23.2
+youtube_transcript_api>=0.6.0
+faster-whisper>=0.10.0
+fpdf>=1.7.2
+pytesseract>=0.3.10
+Pillow>=10.2.0
+pdf2image>=1.16.3
+yt-dlp>=2024.4.9
+ffmpeg-python>=0.2.0

@@ -1,172 +1,152 @@
-GeminiTutor
-GeminiTutor is an AI-powered educational chatbot named Silk, developed by Ashwinder Pal Singh. Built with Flask and the Google Gemini API, it features a modern, dark-themed, animated interface inspired by ChatGPT. Silk assists with summarizing YouTube videos, generating study notes, creating question papers with answer keys, extracting thesis sections, and exporting content to PDF. It supports voice and text interactions, including Hindi, with predefined responses for common queries (e.g., who made you → "Ashwinder Pal Singh"). Licensed under the MIT License, GeminiTutor is designed for students, educators, and researchers seeking an efficient study tool.
-Features
 
-Summarize YouTube videos using transcripts or audio analysis.
-Generate structured study notes from text or PDF inputs.
-Create question papers with short, medium, and long-answer sections, including answer keys.
-Extract specific thesis sections (e.g., methodology, conclusion).
-Export generated content to professional PDF documents.
-Support freestyle conversations via text or voice, with multilingual capabilities (e.g., Hindi).
-Predefined responses for common questions to enhance user experience.
+# GeminiTutor
 
-Installation
+**GeminiTutor** is an AI-powered educational assistant named **Silk**, developed by **Ashwinder Pal Singh**. Built using **Flask** and the **Google Gemini API**, Silk is designed to assist students, educators, and researchers with tasks like summarizing YouTube videos, generating notes, creating question papers, and more — all through a sleek, dark-themed interface inspired by ChatGPT.
 
-Clone the repository:git clone https://github.com/your-username/geminitutor.git
+---
+
+## Features
+
+- Summarize YouTube videos using transcripts or audio analysis  
+- Generate structured study notes from text or PDF  
+- Create question papers (short/medium/long answer) with answer keys  
+- Extract specific thesis sections (e.g., methodology, conclusion)  
+- Export generated content to polished PDF files  
+- Freestyle voice or text chat, including Hindi support  
+- Predefined personality-based responses (e.g., `Who made you → Ashwinder Pal Singh`)  
+
+---
+
+## Installation
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/geminitutor.git
 cd geminitutor
+```
 
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
 
-Install dependencies:pip install -r requirements.txt
+### 3. Configure Google Gemini API
+- Sign up and get your API key from [Google AI Studio](https://makersuite.google.com/)
+- Open `geminitutor.py` and replace the placeholder:
+```python
+API_KEY = "your-api-key-here"
+```
 
+### 4. Run the application
+```bash
+python geminitutor.py
+```
 
-Configure Google AI Studio API key:
-Obtain an API key from Google AI Studio.
-Update API_KEY in geminitutor.py with your key.
+Visit: [http://localhost:5000](http://localhost:5000)
 
+---
 
-Run the application:python geminitutor.py
+## Usage
 
+### Web Interface
+Use your browser to interact with Silk via:
+- Text input
+- Voice (enable microphone access)
 
-Access at http://localhost:5000.
+### Commands
+| Command Example                        | Action                                     
+|----------------------------------------|---------------------------------------------|
+| `summarize YouTube <url>`              | Summarize a video                           
+| `generate notes <content>`             | Generate notes from text/PDF                
+| `generate question paper <source>`     | Create structured question paper            
+| `Who made you?`, `आप कैसे हो?`           |  Freestyle chat / predefined response          
 
+### PDF Export
+All generated content (notes, papers) is saved as PDF in the project folder.
 
+---
 
-Usage
+## Sample Outputs
 
-Web Interface: Interact via text or voice in the browser.
-Commands:
-Summarize videos: summarize YouTube <url>
-Generate notes: generate notes <content>
-Create question papers: generate question paper <source>
-Freestyle chat: Ask questions like Who made you? or आप कैसे हो?
+Add your screenshots to a folder named `images/` inside your project directory and reference them like this:
 
+### Home Interface  
+![Home Interface](images/geminitutorpic.png)
 
-Voice Input: Enable microphone access for voice commands.
-PDF Export: Generated content is saved as PDFs in the project directory.
+### youtube summary Notes Generation Example  
+![Notes Generation](images/ytsumary.png)
 
-API Response Time Comparison
-GeminiTutor leverages the Google Gemini API. Below is a comparison of response times against other AI APIs and local Python functions for summarization and question generation tasks.
-Results
-
-
-
-Task
-Gemini API (ms)
-GPT-4o API (ms)
-Claude 3 API (ms)
-Local Python (ms)
-
-
-
-Text Summarization
-320
-410
-380
-150
-
-
-Question Generation
-450
-520
-490
-200
-
-
-Graph
-
-To generate the graph, run the following Python code and save the output in the images/ directory:
-import matplotlib.pyplot as plt
-
-tasks = ['Text Summarization', 'Question Generation']
-gemini = [320, 450]
-gpt4o = [410, 520]
-claude = [380, 490]
-local = [150, 200]
-
-x = range(len(tasks))
-plt.bar(x, gemini, width=0.2, label='Gemini API', color='#00d4ff')
-plt.bar([i + 0.2 for i in x], gpt4o, width=0.2, label='GPT-4o', color='#ff4d4d')
-plt.bar([i + 0.4 for i in x], claude, width=0.2, label='Claude 3', color='#28a745')
-plt.bar([i + 0.6 for i in x], local, width=0.2, label='Local Python', color='#ffa500')
-
-plt.xlabel('Tasks')
-plt.ylabel('Response Time (ms)')
-plt.title('API and Local Function Response Time Comparison')
-plt.xticks([i + 0.3 for i in x], tasks)
-plt.legend()
-plt.savefig('images/response_time_comparison.png')
-plt.close()
-
-Additional Differences
+### Question Paper Output  
+![Question Paper Output](images/qpaper.png)
 
 
 
-Feature
-Gemini API
-GPT-4o API
-Claude 3 API
-Local Python Functions
+---
+
+## API Response Time Comparison
+
+GeminiTutor uses the Google Gemini API. Here's a performance comparison across different APIs and local processing:
+
+| Task                  | Gemini API (ms) | GPT-4o (ms) | Claude 3 (ms) | Local Python (ms)|
+|-----------------------|----------------|-------------|---------------|-------------------|
+| Text Summarization    | 320            | 410         | 380           | 150               |
+| Question Generation   | 450            | 520         | 490           | 200               |
 
 
 
-Multimodal Support
-Text, audio, video, images
-Text, images
-Text, images
-Text-only
+### API Speed Comparison Chart  
+![Response Time](images/graph.png)
 
+---
 
-Context Window
-1M tokens
-128K tokens
-200K tokens
-N/A
+## Feature Comparison
 
+| Feature              | Gemini API       | GPT-4o API         | Claude 3 API      | Local Python         |
+|----------------------|------------------|--------------------|-------------------|----------------------|
+| Multimodal Support   | Yes              | Yes (Text, Images) | Yes (Text, Images)| No (Text Only)       |
+| Context Window       | 1M tokens        | 128K tokens        | 200K tokens       | Limited              |
+| Scalability          | Cloud-based      | Scalable           | Scalable          | Depends on device    |
+| Cost                 | Free Tier        | Usage-Based        | Usage-Based       | Free                 |
+| Ease of Use          | SDK + CLI        | SDK Available      | SDK Supported     | Manual Only          |
 
-Scalability
-Cloud-based, highly scalable
-Cloud-based, scalable
-Cloud-based, scalable
-Limited by hardware
+---
 
+## Requirements
 
-Cost
-Free tier (60 req/min, 1000/day)
-Usage-based pricing
-Usage-based pricing
-No cost
+- Python 3.8+
+- Python Libraries:
+  - `Flask`, `requests`, `fitz`, `pyttsx3`, `sounddevice`, `scipy`  
+  - `youtube-transcript-api`, `faster-whisper`, `fpdf`, `pytesseract`  
+  - `Pillow`, `pdf2image`, `yt-dlp`, `matplotlib`
 
+---
 
-Ease of Use
-SDK + CLI integration
-Extensive SDK support
-SDK support
-Manual implementation required
+## Contributing
 
+1. Fork the project  
+2. Create a new feature branch  
+```bash
+git checkout -b feature-name
+```
+3. Commit your changes  
+```bash
+git commit -m "Add feature"
+```
+4. Push and open a Pull Request  
+```bash
+git push origin feature-name
+```
 
-Requirements
+---
 
-Python 3.8+
-Dependencies: Flask, fitz, requests, pyttsx3, sounddevice, scipy, youtube-transcript-api, faster-whisper, fpdf, pytesseract, PIL, pdf2image, yt-dlp, matplotlib
-Google AI Studio API key
+## License
 
-Contributing
+This project is licensed under the MIT License.  
+See [`LICENSE`](LICENSE) for full details.
 
-Fork the repository.
-Create a feature branch:git checkout -b feature-name
+---
 
+## Acknowledgments
 
-Commit changes:git commit -m "Add feature"
-
-
-Push to the branch:git push origin feature-name
-
-
-Open a pull request.
-
-License
-MIT License
-Acknowledgments
-
-Developed by Ashwinder Pal Singh.
-Powered by Google Gemini API.
+- Developed by Ashwinder Pal Singh  
+- Powered by the Google Gemini API

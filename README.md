@@ -1,5 +1,5 @@
 
-# GeminiTutor
+# GeminiTutor(Silk)
 
 **GeminiTutor** is an AI-powered educational assistant named **Silk**, developed by **Ashwinder Pal Singh**. Built using **Flask** and the **Google Gemini API**, Silk is designed to assist students, educators, and researchers with tasks like summarizing YouTube videos, generating notes, creating question papers, and more — all through a sleek, dark-themed interface inspired by ChatGPT.
 
